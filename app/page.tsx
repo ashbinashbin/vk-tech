@@ -22,7 +22,7 @@ export default function HomePage() {
           </h1>
 
           <p className="text-sm text-slate-500 mt-2">
-            Your trusted platform for learning and growth.
+            Your trusted platform for learning and growth.join thousands of users already on their journey
           </p>
         </div>
 
