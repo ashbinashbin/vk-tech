@@ -3,25 +3,25 @@ import Link from "next/link";
 export default function Header() {
   return (
     <section className="bg-[#f8f9fc]">
-      <div className="max-w-7xl mx-auto px-10 py-20 flex gap-12">
-        
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 py-14 sm:py-20 flex flex-col lg:flex-row gap-16 lg:gap-12">
+
         {/* LEFT */}
-        <div className="flex-1">
+        <div className="flex-1 text-center lg:text-left">
           <p className="text-sm text-blue-600 font-medium mb-3">
             Trusted by thousands of users
           </p>
 
-          <h1 className="text-4xl font-bold leading-tight mb-4">
+          <h1 className="text-3xl sm:text-4xl font-bold leading-tight mb-4">
             Welcome to VK
           </h1>
 
-          <p className="text-gray-600 max-w-md mb-8">
+          <p className="text-gray-600 max-w-md mx-auto lg:mx-0 mb-8">
             Your trusted platform for learning and growth. Join thousands of
             users already on their journey to success and unlock your potential.
           </p>
 
           {/* Buttons */}
-          <div className="flex gap-4 mb-10">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10">
             <Link
               href="/auth/signup"
               className="bg-blue-600 text-white px-6 py-3 rounded-md text-sm font-medium"
@@ -38,7 +38,7 @@ export default function Header() {
           </div>
 
           {/* Stats */}
-          <div className="flex gap-12">
+          <div className="flex justify-center lg:justify-start gap-10 sm:gap-12">
             <div>
               <p className="text-2xl font-bold">50K+</p>
               <p className="text-sm text-gray-500">Active users</p>
@@ -55,9 +55,9 @@ export default function Header() {
         </div>
 
         {/* RIGHT */}
-        <div className="w-[380px]">
-          <div className="bg-[#eef1ff] rounded-3xl p-6 shadow-[0_35px_120px_rgba(79,70,229,0.45)]">
-            <div className="bg-white rounded-2xl px-10 py-14 text-center shadow-[0_8px_20px_rgba(0,0,0,0.08)]">
+        <div className="w-full lg:w-[380px] flex justify-center">
+          <div className="bg-[#eef1ff] rounded-3xl p-6 shadow-[0_35px_120px_rgba(79,70,229,0.45)] w-full max-w-[380px]">
+            <div className="bg-white rounded-2xl px-8 sm:px-10 py-12 sm:py-14 text-center shadow-[0_8px_20px_rgba(0,0,0,0.08)]">
 
               <img
                 src="/Group.svg"
