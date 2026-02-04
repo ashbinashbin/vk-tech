@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import PopularCourses from "@/components/PopularCourses"
 import TaxPlanningSection from "@/components/TaxPlanningSection"
 import Contact from "@/components/contact";
+import Footer from "@/components/footer"
 export default function Home() {
   return (
     <>
@@ -11,6 +12,7 @@ export default function Home() {
       <PopularCourses />
       <TaxPlanningSection/>
       <Contact/>
+      <Footer/>
     </>
   );
 }
