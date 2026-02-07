@@ -4,6 +4,7 @@ import PopularCourses from "@/components/PopularCourses"
 import TaxPlanningSection from "@/components/TaxPlanningSection"
 import Contact from "@/components/contact";
 import Footer from "@/components/footer"
+import WhyChooseVK from "@/components/why-choose/WhyChooseVK";
 export default function Home() {
   return (
     <>
@@ -11,6 +12,7 @@ export default function Home() {
       <Header />
       <PopularCourses />
       <TaxPlanningSection/>
+      <WhyChooseVK/>
       <Contact/>
       <Footer/>
     </>
