@@ -1,7 +1,7 @@
 "use client";
 
 import CourseCard from "@/components/CourseCard";
-import Footer from "@/components/footer"
+
 
 export default function TaxPlanningSection() {
   const courses = [
@@ -87,7 +87,7 @@ export default function TaxPlanningSection() {
       </div>
     </section>
     
-    <Footer />
+    
     
     </>
     
