@@ -2,49 +2,20 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { courses } from "@/app/data/course";
+
 
 /* ================= BASE COURSES ================= */
-const baseCourses = [
-  {
-    title: "Financial Accounting Fundamentals",
-    category: "Accounting",
-    price: 149,
-    rating: 4.8,
-    students: 12500,
-    instructor: "Dr. Sarah Johnson",
-    duration: "8 weeks",
-    image: "/FA1.svg",
-  },
-  {
-    title: "Advanced Tax Strategies",
-    category: "Tax Planning",
-    price: 199,
-    rating: 4.8,
-    students: 12500,
-    instructor: "Dr. Sarah Johnson",
-    duration: "8 weeks",
-    image: "/tax.svg",
-  },
-  {
-    title: "Corporate Finance Mastery",
-    category: "Finance",
-    price: 249,
-    rating: 4.8,
-    students: 12500,
-    instructor: "Dr. Sarah Johnson",
-    duration: "8 weeks",
-    image: "/corp.svg",
-  },
-];
-
-/* ===== Repeat 3 Courses 3 Times (Like Screenshot) ===== */
 const coursesData = Array(3)
-  .fill(baseCourses)
+  .fill(courses)
   .flat()
   .map((course, index) => ({
     ...course,
     id: index + 1,
   }));
+
+
 
 /* ================= PAGE ================= */
 export default function CoursesPage() {
@@ -67,7 +38,6 @@ export default function CoursesPage() {
 
       {/* ================= HERO ================= */}
       <section className="relative w-full min-h-[520px] bg-[#1e2a78] overflow-hidden">
-
         <Image
           src="/boy.svg"
           alt="Hero"
@@ -80,7 +50,6 @@ export default function CoursesPage() {
 
         <div className="absolute inset-0 flex items-center">
           <div className="max-w-7xl mx-auto px-10 text-white">
-
             <h1 className="text-5xl font-bold leading-tight mb-6 max-w-3xl">
               Explore Courses for <br />
               <span className="text-yellow-400">
@@ -92,9 +61,7 @@ export default function CoursesPage() {
               Boost your career with top-rated courses designed by industry professionals.
             </p>
 
-            {/* SVG Feature Icons */}
             <div className="flex gap-6 flex-wrap">
-
               <div className="bg-white/10 backdrop-blur-md px-6 py-4 rounded-xl text-center w-44">
                 <Image src="/symbol1.svg" alt="" width={40} height={40} className="mx-auto mb-2" />
                 <p className="text-sm">Award Winning Curriculum</p>
@@ -109,7 +76,6 @@ export default function CoursesPage() {
                 <Image src="/symbol3.svg" alt="" width={40} height={40} className="mx-auto mb-2" />
                 <p className="text-sm">Career Growth</p>
               </div>
-
             </div>
           </div>
         </div>
@@ -169,9 +135,10 @@ export default function CoursesPage() {
           ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredCourses.map((course) => (
-                <div
+                <Link
                   key={course.id}
-                  className="bg-white rounded-xl border shadow-sm hover:shadow-md transition overflow-hidden"
+                  href={`/courses/${course.slug}`}
+                  className="bg-white rounded-xl border shadow-sm hover:shadow-md transition overflow-hidden block"
                 >
                   <div className="relative h-[200px]">
                     <Image
@@ -183,12 +150,10 @@ export default function CoursesPage() {
                   </div>
 
                   <div className="p-5 text-left">
-
                     <h3 className="font-semibold mb-2">
                       {course.title}
                     </h3>
 
-                    {/* Rating */}
                     <div className="flex items-center gap-1 text-sm text-gray-600 mb-2">
                       <span className="text-yellow-500">★</span>
                       <span className="font-medium">{course.rating}</span>
@@ -196,12 +161,10 @@ export default function CoursesPage() {
                       <span>{course.students.toLocaleString()} students</span>
                     </div>
 
-                    {/* Instructor */}
                     <div className="text-sm text-gray-500 mb-2">
                       👤 {course.instructor}
                     </div>
 
-                    {/* Duration + Price */}
                     <div className="flex justify-between items-center text-sm text-gray-500 mb-4">
                       <span>⏱ {course.duration}</span>
                       <span className="text-blue-600 font-semibold">
@@ -209,17 +172,19 @@ export default function CoursesPage() {
                       </span>
                     </div>
 
-                    <button className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">
+                    <button
+                      onClick={(e) => e.preventDefault()}
+                      className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+                    >
                       Enroll Now
                     </button>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           )}
         </div>
       </section>
-
     </main>
   );
 }
